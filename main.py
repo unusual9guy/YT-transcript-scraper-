@@ -35,7 +35,7 @@ def get_transcript(response):
 
 def get_vID(yt_url):
     # Regex pattern to extract the video ID needed for serpAPI
-    pattern = r"v=([a-zA-Z0-9_-]{11})"
+    pattern = r'(?:https?:\/\/)?(?:www\.|m\.)?(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})'
     vId = re.search(pattern, yt_url)
 
     if vId:
