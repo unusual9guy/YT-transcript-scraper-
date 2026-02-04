@@ -59,9 +59,12 @@ def main():
         # Getting response from the api call 
         response = get_response(params=params)
 
-        # Getting only the transcript
-        transcript = get_transcript(response=response)
-        print(f"The transcript for the video link '{yt_url}' is : {transcript}")   
+        if "error" in response:
+            print(f"API Error: {response.get('error')}")
+        else:
+            # Getting only the transcript
+            transcript = get_transcript(response=response)
+            print(f"The transcript for the video link '{yt_url}' is : {transcript}")   
 
     
 
