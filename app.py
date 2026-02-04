@@ -29,7 +29,7 @@ def get_transcript(response):
 
 def get_vID(yt_url):
     # Updated regex to handle standard and shortened (youtu.be) URLs
-    pattern = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
+    pattern = r'(?:https?:\/\/)?(?:www\.|m\.)?(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})'
     vId = re.search(pattern, yt_url)
     return vId.group(1) if vId else None
 
